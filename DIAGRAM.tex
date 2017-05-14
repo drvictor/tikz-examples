@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{graphs,trees}
+\begin{document}
+\tikz \graph [grow right=2cm]{
+"main" -> 
+"targetsub" -> 
+    {"trisub", 
+    {"nnmsub" -> 
+        {"Hmsub",
+        {"jointsub"->"linsub"}}},
+    plotsub};
+};
+
+\tikz \graph [grow up, branch right=2cm]{
+"main" -> 
+"targetsub" -> 
+    {"trisub", 
+    {"nnmsub" -> 
+        {"Hmsub",
+        {"jointsub"->"linsub"}}},
+    plotsub};
+};
+
+\tikz \graph [grow right=2cm]{
+"linsub"->"jointsub"->"nnmsub"->"targetsub"->"main";
+"Hmsub"->"nnmsub";
+"trisub"->"targetsub";
+"plotsub"->"targetsub"
+};
+
+\end{document}
